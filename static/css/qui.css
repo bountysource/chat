@@ -1,0 +1,275 @@
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #555;
+}
+
+html {
+    overflow: hidden;
+}
+
+#ircui {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.qwebirc-qui .dynamicpanel {
+    position: absolute;
+}
+.qwebirc-qui .widepanel, .leftboundpanel {
+    left: 0px;
+}
+.qwebirc-qui .widepanel {
+    width: 100%;
+}
+.qwebirc-qui .topboundpanel {
+    top: 0px;
+}
+.qwebirc-qui .rightboundpanel {
+    /*right: 0px;*/
+}
+.qwebirc-qui .bottomboundpanel {
+    color: red;
+}
+
+.qwebirc-qui .lines {
+    color: #eee;
+    overflow: auto;
+}
+
+.qwebirc-qui .lines .timestamp {
+    display: inline;
+}
+
+.qwebirc-qui .ircwindow div {
+    font-family: Consolas, "Lucida Console", monospace;
+    text-indent: -7px;
+    padding-left: 7px;
+    word-wrap: break-word;
+}
+
+.qwebirc-qui .tab-invisible {
+    display: none;
+}
+
+.qwebirc-qui .input input.keyboard-input {
+    border: 0px;
+    margin: 2px 0px 0px 0px;
+    width: 99%;
+    background: none;
+    color: #eee;
+    font-family: Consolas, "Lucida Console", monospace;
+    outline: none
+}
+
+.qwebirc-qui .input input.mobile-input {
+    border: 0px;
+    margin: 2px 0px 0px 0px;
+}
+
+.qwebirc-qui .input input.mobile-button {
+    position: absolute;
+    top: 0px;
+}
+
+.qwebirc-qui form {
+    margin: 0px;
+    padding: 0px;
+}
+
+.qwebirc-qui .topic {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+}
+
+.qwebirc-qui .topic .emptytopic {
+    color: gray;
+}
+
+.qwebirc-qui .topic {
+    color: gray;
+    padding-left: 5px;
+    font-size: 0.7em;
+    cursor: default;
+}
+
+.qwebirc-qui .outertabbar {
+}
+
+.qwebirc-qui .tabbar {
+    font-size: 0.8em;
+    color: rgb(0,0,0);
+    margin-left: 38px;
+    line-height: 24px;
+}
+
+.qwebirc-qui a.tab {
+    border: 1px solid rgb(200,209,219);
+    padding: 2px;
+    cursor: default;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin-right: -2px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: rgb(0,0,0);
+}
+
+.qwebirc-qui .tab:hover {
+    background: rgb(255,255,254);
+    border: 1px solid #c8d2dc;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.qwebirc-qui .tab-selected {
+    background: rgb(255,255,254);
+    border: 1px solid rgb(200,209,219);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    color: rgb(51,51,51);
+}
+
+.qwebirc-qui div.input {
+    border-top: 1px solid #ccc;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.qwebirc-qui .tabclose {
+    margin-left: 5px;
+    font-size: 0.7em;
+    line-height: 150%;
+    vertical-align: top;
+    padding-left: 3px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.qwebirc-qui a.tab-hilight-activity {
+    color: #009900;
+}
+
+.qwebirc-qui a.tab-hilight-speech {
+    color: #0000ff;
+}
+
+.qwebirc-qui a.tab-hilight-us {
+    color: #ff0000;
+}
+
+.qwebirc-qui .nicklist {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 140px;
+    overflow: auto;
+    color: #eee;
+    font-family: Consolas, "Lucida Console", monospace;
+    border-left: 1px solid #ccc;
+    padding-left: 5px;
+}
+
+.qwebirc-qui .nicklist a {
+    display: block;
+    color: #eee;
+    text-decoration: none;
+    cursor: default;
+    padding-left: 1px;
+}
+
+.qwebirc-qui .nicklist a.selected {
+    display: block;
+    color: rgb(0,0,0);
+    text-decoration: none;
+    border-bottom: rgb(200,209,219) 1px solid;
+    cursor: default;
+}
+
+.qwebirc-qui .nicklist a.selected-middle {
+    border-top: rgb(200,209,219) 1px solid;
+}
+
+div#noscript {
+    text-align: center;
+    font-weight: bold;
+}
+
+.qwebirc-qui .nicklist div.menu {
+    margin: 0px 0px 0px 5px;
+}
+
+.qwebirc-qui .nicklist div.menu a {
+    border-bottom: 0;
+    border-top: 0;
+}
+
+.qwebirc-qui .hyperlink-whois, .hyperlink-qwhois, .hyperlink-channel {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.qwebirc-qui .hyperlink-whois:hover, .hyperlink-qwhois:hover, .hyperlink-channel:hover {
+    text-decoration: underline;
+}
+
+.qwebirc-qui .outertabbar .dropdown-tab {
+    cursor: pointer;
+    cursor: hand;
+    float: left;
+    padding: 4px;
+    width: 30px;
+}
+
+.qwebirc-qui .dropdownmenu {
+    z-index: 100;
+    border: 1px solid rgb(200,209,219);
+    position: relative;
+    top: 10px;
+    left: 10px;
+    background: rgb(240,247,255);
+}
+
+.qwebirc-qui .dropdownmenu a {
+    display: block;
+    font-size: 0.7em;
+    color: rgb(0,0,0);
+    cursor: pointer;
+    cursor: hand;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-bottom: 1px;
+    padding-right: 3px;
+}
+
+.qwebirc-qui .dropdownmenu a:hover {
+    background: rgb(255,255,254); /* IE is rubbish and doesn't like #FFFFFF or white */
+}
+
+.qwebirc-qui .dropdownhint {
+    position: relative;
+    left: -500px;
+    z-index: 10;
+    white-space: nowrap;
+    font-size: 0.7em;
+}
+
+.qwebirc-qui hr.lastpos {
+    border: none;
+    border-top: 1px solid rgb(200,209,219);
+    margin-left: 3em;
+    margin-right: 3em;
+}

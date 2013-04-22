@@ -79,8 +79,8 @@ class RootSite(server.Site):
       root.putChild(path, sobj)
       
     register(engines.AJAXEngine, "e")
-    register(engines.FeedbackEngine, "feedback")
+    #register(engines.FeedbackEngine, "feedback")
     register(engines.AuthgateEngine, "auth")
-    register(engines.AdminEngine, "adminengine", services)
+    #register(engines.AdminEngine, "adminengine", services)
     
 mimetypes.types_map[".ico"] = "image/vnd.microsoft.icon"

@@ -60,31 +60,14 @@ def main():
   
   trymkdir(DEST)
   trymkdir(DEST, "static")
-  trymkdir(DEST, "static", "js")
-    
+
   compile.main(DEST, produce_debug=False)
   
   for x in "authgate qwebirc esimplejson twisted".split(" "):
     copypydir(x, DEST)
   for x in "images panes sound".split(" "):
     copydir(os.path.join("static", x), DEST)
-  for x in pages.JS_EXTRA:
-    copy(os.path.join("static", "js", x + ".js"), DEST)
-    
-  for x in pages.UIs.values():
-    e = x.get("extrajs")
-    if e is None:
-      continue
-    for x2 in e:
-      file = os.path.join("static", "js", "%s.js" % x2)
-      destfile = os.path.join(DEST, file)
-      dir, _ = os.path.split(destfile)
-      if not os.path.exists(dir):
-        os.mkdir(dir)
-      copy(file, DEST)
-      
-  copy(os.path.join("static/favicon.ico"), DEST)
-  
+
   if 0:
     compile_python(DEST)
     remove_python(DEST)
