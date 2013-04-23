@@ -102,44 +102,33 @@ html {
     cursor: default;
 }
 
-.qwebirc-qui .outertabbar {
+.colourline:first-child, .nicklist > a:first-child {
+  padding-top: 5px
 }
 
-.qwebirc-qui .tabbar {
-    font-size: 0.8em;
-    color: rgb(0,0,0);
-    margin-left: 38px;
-    line-height: 24px;
+.nav-tabs {
+  background: #444;
+  border-bottom: 1px solid #ccc;
+  padding: 0 10px;
+  height: 36px;
 }
 
-.qwebirc-qui a.tab {
-    border: 1px solid rgb(200,209,219);
-    padding: 2px;
-    cursor: default;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    margin-right: -2px;
-    white-space: nowrap;
-    text-decoration: none;
-    color: rgb(0,0,0);
+.nav-tabs>li {
+  padding-top: 6px;
 }
 
-.qwebirc-qui .tab:hover {
-    background: rgb(255,255,254);
-    border: 1px solid #c8d2dc;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+.nav-tabs>li>a {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #eee;
 }
 
-.qwebirc-qui .tab-selected {
-    background: rgb(255,255,254);
-    border: 1px solid rgb(200,209,219);
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    color: rgb(51,51,51);
+.nav-tabs>li>a:hover, .nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus {
+  background-color: #555;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #555;
+  color: #eee;
+  height: 21px !important;
 }
 
 .qwebirc-qui div.input {
@@ -149,14 +138,9 @@ html {
 }
 
 .qwebirc-qui .tabclose {
-    margin-left: 5px;
+    margin-left: 7px;
     font-size: 0.7em;
-    line-height: 150%;
-    vertical-align: top;
     padding-left: 3px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
 }
 
 .qwebirc-qui a.tab-hilight-activity {
@@ -186,8 +170,6 @@ html {
 .qwebirc-qui .nicklist a {
     display: block;
     color: #eee;
-    text-decoration: none;
-    cursor: default;
     padding-left: 1px;
 }
 
@@ -220,6 +202,7 @@ div#noscript {
 .qwebirc-qui .hyperlink-whois, .hyperlink-qwhois, .hyperlink-channel {
     cursor: pointer;
     cursor: hand;
+    color: #eee;
 }
 
 .qwebirc-qui .hyperlink-whois:hover, .hyperlink-qwhois:hover, .hyperlink-channel:hover {

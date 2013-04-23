@@ -49,7 +49,7 @@ qwebirc.config.DEFAULT_OPTIONS = [
       ui.setModifiableStylesheetValues({hue: value});
     }
   }],
-  [12, "QUERY_ON_NICK_CLICK", "Query on nickname click in channel", false],
+  [12, "QUERY_ON_NICK_CLICK", "Query on nickname click in channel", true],
   [13, "SHOW_NICKLIST", "Show nickname list in channels", true],
   [14, "SHOW_TIMESTAMPS", "Show timestamps", true] /* we rely on the hue update */
 ];

@@ -21,9 +21,9 @@ qwebirc.ui.QUI = new Class({
     
     this.outerTabs = this.qjsui.top;
 
-    this.tabs = new Element("div");
-    this.tabs.addClass("tabbar");
-    
+    this.tabs = new Element("ul");
+    this.tabs.addClass("nav nav-tabs hide");
+
     //this.__createDropdownMenu();
     
     this.outerTabs.appendChild(this.tabs);
@@ -223,8 +223,8 @@ qwebirc.ui.QUI.JSUI = new Class({
     var topic = this.topic;
     var top = this.top;
     
-    var topicsize = topic.getSize();
-    var topsize = top.getSize();
+    var topicsize = { y: 0 };
+    var topsize = { y: 36 };
     var rightsize = right.getSize();
     var bottomsize = bottom.getSize();
     var docsize = this.sizer.getSize();
@@ -268,17 +268,21 @@ qwebirc.ui.QUI.Window = new Class({
   initialize: function(parentObject, client, type, name, identifier) {
     this.parent(parentObject, client, type, name, identifier);
 
-    this.tab = new Element("a", {"href": "#"});
+    this.tab = new Element("li");
+
     this.tab.addClass("tab");
-    this.tab.addEvent("focus", function() { this.blur() }.bind(this.tab));;
+
+    this.tab_a = new Element("a", {"href": "#"});
+    this.tab.appendChild(this.tab_a);
 
     if(type != qwebirc.ui.WINDOW_STATUS && type != qwebirc.ui.WINDOW_CONNECT) {
       this.spaceNode = document.createTextNode(" ");
+      parentObject.tabs.removeClass('hide');
       parentObject.tabs.appendChild(this.tab);
       parentObject.tabs.appendChild(this.spaceNode);
 
-      this.tab.appendText(name);
-      this.tab.addEvent("click", function(e) {
+      this.tab_a.appendText(name);
+      this.tab_a.addEvent("click", function(e) {
         new Event(e).stop();
 
         if(this.closed)
@@ -307,7 +311,7 @@ qwebirc.ui.QUI.Window = new Class({
       }.bind(this);
       
       tabclose.addEvent("click", close);
-      this.tab.addEvent("mouseup", function(e) {
+      this.tab_a.addEvent("mouseup", function(e) {
         var button = 1;
         
         if(Browser.Engine.trident)
@@ -317,7 +321,7 @@ qwebirc.ui.QUI.Window = new Class({
           close(e);
       }.bind(this));
       
-      this.tab.appendChild(tabclose);
+      this.tab_a.appendChild(tabclose);
     }
 
     this.lines = new Element("div");
@@ -333,8 +337,8 @@ qwebirc.ui.QUI.Window = new Class({
     
     if(type == qwebirc.ui.WINDOW_CHANNEL) {
       this.topic = new Element("div");
-      this.topic.addClass("topic");
-      this.topic.addClass("tab-invisible");
+//      this.topic.addClass("topic");
+//      this.topic.addClass("tab-invisible");
       this.topic.set("html", "&nbsp;");
       this.topic.addEvent("dblclick", this.editTopic.bind(this));
       this.parentObject.qjsui.applyClasses("topic", this.topic);
@@ -453,21 +457,12 @@ qwebirc.ui.QUI.Window = new Class({
     e.appendChild(span);
     
     e.realNick = realNick;
-    
+
     e.addEvent("click", function(x) {
-//      if(this.prevNick == e) {
-//        this.removePrevMenu();
-//        return;
-//      }
-//
-//      this.removePrevMenu();
-//      this.prevNick = e;
-//      e.addClass("selected");
-//      this.moveMenuClass();
-//      e.menu = this.createMenu(e.realNick, e);
-//      new Event(x).stop();
+      new Event(x).stop();
+      this.client.exec("/QUERY " + e.realNick);
     }.bind(this));
-    
+
     e.addEvent("focus", function() { this.blur() }.bind(e));
     this.moveMenuClass();
     return e;
@@ -497,8 +492,7 @@ qwebirc.ui.QUI.Window = new Class({
   select: function() {
     var inputVisible = this.type != qwebirc.ui.WINDOW_CONNECT && this.type != qwebirc.ui.WINDOW_CUSTOM && this.type != qwebirc.ui.WINDOW_STATUS;
     
-    this.tab.removeClass("tab-unselected");
-    this.tab.addClass("tab-selected");
+    this.tab.addClass("active");
 
     this.parentObject.setLines(this.lines);
     this.parentObject.setChannelItems(this.nicklist, this.topic);
@@ -534,8 +528,7 @@ qwebirc.ui.QUI.Window = new Class({
   deselect: function() {
     this.parent();
     
-    this.tab.removeClass("tab-selected");
-    this.tab.addClass("tab-unselected");
+    this.tab.removeClass("active");
   },
   close: function() {
     this.parent();

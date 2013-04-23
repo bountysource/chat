@@ -4,14 +4,14 @@ with (scope('Connect')) {
     var nick_input = text({ 'class': 'input-text input-medium', name: 'nick', style: 'margin: 0 10px', placeholder: initialNickname });
 
     render({ into: parentElement},
-      p({ style: 'text-align: center; padding-top: 40px' }, "The #Bountysource IRC Chatroom is a place to communicate with other Bountysource users."),
+      p({ style: 'text-align: center; padding-top: 10px' }, "The #Bountysource IRC Chatroom is a place to communicate with other Bountysource users."),
 
       form({ style: 'text-align: center; padding-top: 10px', action: curry(process, callback, parentElement, nick_input) },
         span("Nickname:"),
         nick_input,
         submit({ 'class': 'btn btn-success' }, "Connect")
       )
-    );
+   );
 
     nick_input.focus();
   });
