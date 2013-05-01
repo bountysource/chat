@@ -59,7 +59,7 @@ qwebirc.ui.BaseUI = new Class({
 
     with (scope()) {
       render({ into: this.lines },
-        p({ style: 'text-align: center; padding-top: 40px' }, "Connecting, please wait..."),
+        p({ style: 'text-align: center; padding-top: 20px' }, "Connecting, please wait..."),
         div({ style: 'text-align: center' }, img({ src: 'images/spinner.gif' })),
         p({ style: 'text-align: center; padding-top: 16px' }, "Staff have an ", span({ style: 'font-size: 140%' }, '@'), " in front of their nickname.")
       );
@@ -402,14 +402,10 @@ qwebirc.ui.NewLoginUI = new Class({
 
     /* I'd prefer something shorter and snappier! */
 
-    var w = this.newCustomWindow("Connection details", true, qwebirc.ui.WINDOW_CONNECT);
-    var callback = function(args) {
-      w.close();
-      callbackfn(args);
-    };
-
-
-    qwebirc.ui.GenericLoginBox(w.lines, callbackfn, initialNickname, initialChannels, autoConnect, autoNick, this.options.networkName);
+    callbackfn({
+      "nickname": initialNickname,
+      "autojoin": '#warren'
+    });
   }
 });
 
