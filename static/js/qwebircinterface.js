@@ -10,7 +10,7 @@ qwebirc.ui.Interface = new Class({
   Implements: [Options],
   options: {
     initialNickname: "Guest" + Math.ceil(Math.random() * 100000),
-    initialChannels: "#warren",
+    initialChannels: "#bountysource",
     networkName: "ExampleNetwork",
     networkServices: [],
     loginRegex: null,
