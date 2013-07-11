@@ -404,7 +404,7 @@ qwebirc.ui.NewLoginUI = new Class({
 
     callbackfn({
       "nickname": initialNickname,
-      "autojoin": '#warren'
+      "autojoin": '#bountysource'
     });
   }
 });
